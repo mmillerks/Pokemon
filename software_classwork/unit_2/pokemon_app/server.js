@@ -14,8 +14,12 @@ app.listen(3000, function() {
     console.log("Listening on port 3000.");
 });
 
+//Set this 'database' to a variable called pokemon in your server.js file
+const pokemon = require('./models/pokemon.js');
+//Is this correct?????
 
-app.get('/', (req, res) => {
-    res.render('template', { title: 'Home', message: 'Welcome!', content: 'Welcome to the Pokemon App!' })
-  })
-  
+//Create a get route /pokemon that will res.send(pokemon), which will display your pokemon data as json in the browser
+app.get('/pokemon.js', (req, res) => {
+    res.send('template', { title: 'Home', message: 'Welcome!', content: 'Welcome to the Pokemon App!' })
+  });
+  //EEEk! I don't think this is correct. 
