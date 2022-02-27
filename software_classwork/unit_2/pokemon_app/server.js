@@ -23,3 +23,58 @@ app.get('/pokemon.js', (req, res) => {
     res.send('template', { title: 'Home', message: 'Welcome!', content: 'Welcome to the Pokemon App!' })
   });
   //EEEk! I don't think this is correct. 
+
+
+//MVC SET_UP
+//views    
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
+//models
+// mongoose.connect(process.env.MONGO_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false
+// });
+
+//MIDDLEWEAR
+// app.use(express.urlencoded({ extended: true }));
+// app.use((req, res, next) => {
+//     console.log(req.body)
+//     next()
+// });
+// app.use(methodOverride('_method'));
+
+
+
+
+
+//INDEX
+
+//Index
+// app.get('/pokemon', function(req, res) {
+//     Pokemon.find({}, (err, "") => {
+//         if (err) {
+//             res.status(400).send(err)
+//         } else {
+//             res.render('pokemon/Index', {
+//                 keyvalue: pair
+//             })
+//         }
+//     })
+// });
+// //Sooo, I don't know exactly what I'm doing here. But I think I started it correctly???
+
+
+//NEW
+
+//DELETE
+
+//UPDATE
+
+//CREATE
+
+//EDIT
+
+//SHOW
