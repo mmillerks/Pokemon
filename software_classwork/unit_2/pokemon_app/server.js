@@ -58,7 +58,8 @@ app.get('/pokemon', (req, res) => {
 //add a new get route /pokemon/:id
 app.route('/pokemon/:id')
     .get((req,res) => {
-        res.send('whatever')
+        res.send(req.params.id)
+        res.send("whatever")
     });
 
 
