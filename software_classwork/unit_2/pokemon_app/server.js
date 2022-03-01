@@ -1,5 +1,6 @@
 //require Express
 const express = require('express');
+const res = require('express/lib/response');
 
 //set express to a variable
 const app = express();
@@ -49,6 +50,17 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.get('/pokemon', (req, res) => {
     res.render('Index', { pokemons })
 });
+
+//To make the first letter uppercase I know I need something like this, 
+//but I'm not sure how eactly to just make the first letter uppercase
+//let uppercasetext = text.toUpperCase(); 
+
+//add a new get route /pokemon/:id
+app.route('/pokemon/:id')
+    .get((req,res) => {
+        res.send('whatever')
+    });
+
 
 //NEW
 
