@@ -15,14 +15,16 @@ app.listen(3000, function() {
 });
 
 //Set this 'database' to a variable called pokemon in your server.js file
-const pokemon = require('./models/pokemon.js');
-//Is this correct?????
+const pokemons = require('./models/pokemon.js');
 
 //Create a get route /pokemon that will res.send(pokemon), which will display your pokemon data as json in the browser
-app.get('/pokemon.js', (req, res) => {
+app.get('./models/pokemon.js', (req, res) => {
     res.send('template', { title: 'Home', message: 'Welcome!', content: 'Welcome to the Pokemon App!' })
   });
-  //EEEk! I don't think this is correct. 
+
+app.get('/pokemons', (req, res) => {
+    res.send(pokemons)
+});
 
 
 //MVC SET_UP
@@ -30,13 +32,9 @@ app.get('/pokemon.js', (req, res) => {
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
+
+
 //models
-// mongoose.connect(process.env.MONGO_URI, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//     useFindAndModify: false
-// });
 
 //MIDDLEWEAR
 // app.use(express.urlencoded({ extended: true }));
@@ -47,25 +45,10 @@ app.engine('jsx', require('express-react-views').createEngine());
 // app.use(methodOverride('_method'));
 
 
-
-
-
 //INDEX
-
-//Index
-// app.get('/pokemon', function(req, res) {
-//     Pokemon.find({}, (err, "") => {
-//         if (err) {
-//             res.status(400).send(err)
-//         } else {
-//             res.render('pokemon/Index', {
-//                 keyvalue: pair
-//             })
-//         }
-//     })
-// });
-// //Sooo, I don't know exactly what I'm doing here. But I think I started it correctly???
-
+app.get('/pokemon', (req, res) => {
+    res.render('Index', { pokemons })
+});
 
 //NEW
 

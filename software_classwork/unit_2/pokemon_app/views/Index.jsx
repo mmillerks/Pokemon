@@ -1,29 +1,27 @@
-//boilerplate
-const React = require('react')
-const Default = require('../layout/Default.jsx')
+const React = require('react');
 
-const Index extends React.Component {
-    render() {
-        const pokemon = this.props.pokemon
+class Index extends React.Component {
+    render(){
+        const pokemons = this.props.pokemons
+        console.log(pokemons)
         return (
-            <Default title ="Index Page">
-                <div>
-                    <h1>See All the Pokemon!</h1>
-                </div>
-            </Default>
+            <div>
+                <h1>See All the Pokemon!</h1>
+                <nav>
+                    <a href="/pokemon/new">Go to the new page</a>
+                </nav>
+                <ul>
+                {
+                   pokemons.map((pokemon, i) => {
+                        return (
+                            <li><a href={`/pokemon/${i}`}>{pokemon.name}</a> </li>
+                        )
+                    })
+                }
+                </ul> 
+            </div>
         )
     }
-}
+}    
 
-const myStyle = {
-    color: '#ffffff',
-    backgroundColor: '#000000',
-    };
-    
-    class MyFirstComponent extends React.Component() {
-    return (
-      <div style={myStyle}>My First React Component!</div>;
-    }
-    }
-
-module.exports = Index; 
+module.exports = Index;
