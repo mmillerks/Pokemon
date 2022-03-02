@@ -56,11 +56,11 @@ app.get('/pokemon', (req, res) => {
 //let uppercasetext = text.toUpperCase(); 
 
 //add a new get route /pokemon/:id
-app.route('/pokemon/:id')
-    .get((req,res) => {
-        res.send(req.params.id)
-        res.send("whatever")
-    });
+// app.route('/pokemon/:id')
+//     .get((req,res) => {
+//         res.send(req.params.id)
+//         //res.send("whatever")
+//     });
 
 
 //NEW
@@ -74,3 +74,6 @@ app.route('/pokemon/:id')
 //EDIT
 
 //SHOW
+app.get('/pokemon/:id', (req, res) => {
+    res.render('Show', { pokemon: pokemons[req.params.id] }) 
+});
